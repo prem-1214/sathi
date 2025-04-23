@@ -29,6 +29,10 @@ app.get('/', (req, res) =>{
     res.end("AI home page")
 })
 
+app.get('/askAI', (req, res) =>{
+    res.end("AI ask page")
+})
+
 app.post('/askAI', async (req, res) =>{
     const {prompt} = req.body
 

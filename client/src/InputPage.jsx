@@ -4,13 +4,19 @@ const AIInputPage = () => {
   const [prompt, setPrompt] = useState('')
   const [response, setResponse] = useState('')
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!prompt) return
+    setError('')
+    setResponse('')
+    
+    if (!prompt.trim()) {
+      setError('Please enter a prompt.')
+      return
+    }
 
     setLoading(true)
-    setResponse('')
 
     try {
       const res = await fetch('http://localhost:5000/askAI', {
@@ -25,10 +31,10 @@ const AIInputPage = () => {
       if (data.response) {
         setResponse(data.response)
       } else {
-        setResponse('No response from AI.')
+        setError('No response from AI.')
       }
     } catch (err) {
-      setResponse('Error: ' + err.message)
+      setError('Error: ' + err.message)
     } finally {
       setLoading(false)
     }
@@ -40,8 +46,8 @@ const AIInputPage = () => {
       <form onSubmit={handleSubmit}>
         <textarea
           rows={4}
-          style={{ width: '100%' }}
-          placeholder="Enter your prompt..."
+          style={{ width: '100%', padding: 10 }}
+          placeholder="Enter your query for the AI..."
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
         />
@@ -50,10 +56,14 @@ const AIInputPage = () => {
         </button>
       </form>
 
+      {error && <p style={{ color: 'red', marginTop: 20 }}>{error}</p>}
+
       {response && (
-        <div style={{ marginTop: 20 }}>
-          <h4>Response:</h4>
-          <p>{response}</p>
+        <div style={{ marginTop: 30 }}>
+          <h4>AI Response:</h4>
+          <div style={{ whiteSpace: 'pre-wrap', background: '#f5f5f5', padding: 10, borderRadius: 5 }}>
+            {response}
+          </div>
         </div>
       )}
     </div>

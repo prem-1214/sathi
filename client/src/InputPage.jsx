@@ -19,7 +19,7 @@ const AIInputPage = () => {
     setLoading(true)
 
     try {
-      const res = await fetch('http://localhost:5000/askAI', {
+      const res = await fetch(`${import.meta.env.VITE_SERVER_URL}/askAI`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

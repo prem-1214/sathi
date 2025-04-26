@@ -19,7 +19,7 @@ const AIInputPage = () => {
     setLoading(true)
 
     try {
-      const res = await fetch('https://sathi-ogqd.onrender.com', {
+      const res = await fetch('http://localhost:5000/askAI', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

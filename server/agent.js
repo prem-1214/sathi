@@ -22,7 +22,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
 const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" })
 
 app.get('/', (req, res) => {
-  res.send('AI Agent Server is running!')
+  res.json({ message: "Welcome to the AI Agent API!" })
 })
 
 app.post('/askAI', async (req, res) => {

@@ -1,13 +1,19 @@
-import { useState } from 'react'
 import './App.css'
-import InputPage from './InputPage'
+// import InputPage from './AIInputPage'
+import Home from './Home'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
+import AIInputPage from './InputPage'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <InputPage />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/askAI' element={<AIInputPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

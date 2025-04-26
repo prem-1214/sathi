@@ -61,7 +61,7 @@ const AIInputPage = () => {
       {response && (
         <div style={{ marginTop: 30 }}>
           <h4>AI Response:</h4>
-          <div style={{ whiteSpace: 'pre-wrap', background: '#f5f5f5', padding: 10, borderRadius: 5 }}>
+          <div style={{ whiteSpace: 'pre-wrap', background: '#f5f5f5', color : 'black', padding: 10, borderRadius: 5 }}>
             {response}
           </div>
         </div>

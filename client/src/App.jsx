@@ -1,5 +1,4 @@
 import './App.css'
-// import InputPage from './AIInputPage'
 import Home from './Home'
 import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import AIInputPage from './InputPage'

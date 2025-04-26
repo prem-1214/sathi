@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "agent": "npm install dotenv && node agent.js",
-    "build": "npm run build"
+    "agent": "npm install && node agent.js",
+    "build": "npm install && npm run build"
   },
   "keywords": [],
   "author": "",
